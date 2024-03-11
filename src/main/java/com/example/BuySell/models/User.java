@@ -23,7 +23,7 @@ public class User implements UserDetails {
     @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name = "phoneNumber")
+    @Column(name = "phoneNumber", unique = true)
     private String phoneNumber;
 
     @Column(name = "name")
@@ -53,6 +53,7 @@ public class User implements UserDetails {
     private Set<Role> roles = new HashSet<>();
     private LocalDateTime dateOfCreated;
 
+    @PrePersist
     private void init() {
         dateOfCreated = LocalDateTime.now();
     }

@@ -19,8 +19,8 @@ public class UserService {
         String email = user.getEmail();
         if (userRepository.findByEmail(email) != null) return false;
         user.setActive(true);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.getRoles().add(Role.ROLE_USER);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         log.info("Saving new user with email: {}", email);
         userRepository.save(user);
         return true;
