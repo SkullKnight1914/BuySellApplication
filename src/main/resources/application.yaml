@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/buysell_db
+    username: postgres
+    password: 1543
+    hikari:
+      auto-commit: false
+
+  jpa:
+    show-sql: true
+
+    hibernate:
+      ddl-auto: update
